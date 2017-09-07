@@ -1,0 +1,25 @@
+{
+    "name": "NiceTrackin",
+    "version": "0.1.0",
+    "description": "Track your miners stats on NiceHash with a better (I hope) interface",
+    "author": "Camille Oggier <camille@oggier.info>",
+    "scripts": {
+        
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/swisswar/nicetrackin"
+    },
+    "bugs": {
+        "url": "https://github.com/swisswar/nicetrackin/issues"
+    },
+    
+    "dependencies": {
+        "jquery": "*",
+        "materialize-css": "*",
+        "js-cookie": "*",
+        "cryptocoins-icons": "*",
+        "rivets": "*"
+    },
+    "license": "MIT"
+}

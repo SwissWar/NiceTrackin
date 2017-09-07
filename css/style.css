@@ -1,0 +1,154 @@
+body {
+    position: absolute;
+    width: 100%;
+    background: #fbfbfb;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.searchBody {
+    height: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.wrapper {
+    height: 100%;
+}
+
+.search {
+    width: 100%;
+}
+
+input[type=text]#btcAddress {
+    font-family: "cryptocoins-icons", "Roboto", sans-serif;
+    margin-bottom: 30px;
+    border-radius: 2px;
+    background: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    border-bottom: none;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-weight: 200;
+    margin: 0;
+}
+
+.logoNice {
+    color: #a2a2a2;
+}
+
+.logoNiceHeader {
+    color: #dcdcdc;
+}
+
+nav .brand-logo {
+    line-height: inherit;
+    margin-left: 20px;
+}
+
+div.search {
+    padding-bottom: 7rem;
+}
+
+.searchbar * button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.page-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 5px;
+    -webkit-box-shadow: 0px 0px 9px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 9px rgba(0,0,0,0.3);
+}
+
+.page-footer a , #btcDonation {
+    color: inherit;
+    font-weight: bold;
+}
+
+#btcDonation {
+    cursor: text;
+}
+
+i.right {
+    margin-left: 5px;
+}
+
+.searchBarProgress {
+    border-radius: 2px 2px 0px 0px;
+    margin:0;
+    overflow: hidden;
+    opacity: 0;
+    height: 2px;
+}
+
+nav.red {
+    padding-bottom: 5px;
+}
+
+div.nav-wrapper {
+    background-color: rgba(51,51,51,0.08);
+}
+
+span.statNumber {
+    font-size: 3rem;
+    font-weight: 300;
+    display: block;
+}
+
+span.subStatNumber {
+    font-size: 1.7rem;
+    font-weight: 200;
+}
+
+span.statUnit {
+    color: #a9a9a9;
+    font-weight: 200;
+}
+
+span.subStatUnit {
+    font-weight: 200;
+}
+
+.card {
+    border-top: 2px solid;
+    border-color: red;
+    margin: 0;
+}
+
+span.smallStatNumber {
+    font-size: 2rem;
+}
+
+span.tinyStatNumber {
+    font-size: 1.7rem;
+    font-weight: 200;
+}
+
+.dashboard {
+    margin-top: 10px;
+}
+
+.timer:before {
+        background-color: #ececec;
+}
+
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left:2%;
+}

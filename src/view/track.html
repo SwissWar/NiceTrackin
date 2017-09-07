@@ -1,0 +1,111 @@
+<div id="header">
+    <ul id="trackAddress" class="dropdown-content">
+        <li><a href="#!">{ global.currentAddress }</a></li>
+        <li class="divider"></li>
+        <li rv-each-address="global.addressesList"><a href="#!">{address.address}</a></li>
+    </ul>
+    <nav class="red lighten-1">
+        <div class="nav-wrapper">
+            <h2 class="logo brand-logo"><span class="logoNiceHeader">Nice</span>Trackin</h2>
+            <ul class="right hide-on-med-and-down">
+                <li><a class="dropdown-button" href="#!" data-activates="trackAddress">{ global.currentAddress }<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li id="lol"><a href="#!"><i class="material-icons">add</i></a></li>
+                <li><a href="#!"><i class="material-icons">refresh</i></a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="row dashboard">
+    <div class="col l2 s6 m4">
+        <div class="card tooltipped" data-position="bottom" data-delay="50" data-tooltip="Current profitability">
+            <div class="card-content center-align">
+                <span class="statNumber">{ global.latestResult.profitability | btc }<i class="small material-icons green-text text-lighten-1">arrow_drop_up</i></span>
+                <span class="statUnit">BTC/day</span>
+            </div>
+            <div class="divider"></div>
+            <div class="card-content center-align">
+                <span class="subStatNumber">{ global.latestResult.profitability | cryptoExchange } <span class="statUnit subStatUnit">$</span></span>
+            </div>
+        </div>
+    </div>
+    <div class="col l4 s6 m4">
+        <div class="row">
+            <div class="col l6 s6 m4">
+                <div class="card tooltipped" data-position="bottom" data-delay="50" data-tooltip="Active workers">
+                    <div class="card-content center-align">
+                        <span class="statNumber smallStatNumber">5<i class="tiny material-icons green-text text-lighten-1">arrow_drop_up</i></span>
+                        <span class="statUnit">Workers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col l6 s6 m4">
+                <div class="card tooltipped" data-position="bottom" data-delay="50" data-tooltip="Hosts connected">
+                    <div class="card-content center-align">
+                        <span class="statNumber smallStatNumber">3<i class="tiny material-icons green-text text-lighten-1">arrow_drop_up</i></span>
+                        <span class="statUnit">Hosts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col l12 s6 m4">
+                <div class="card tooltipped" data-position="bottom" data-delay="50" data-tooltip="Current Bitcoin price on Kraken">
+                    <div class="card-content center-align">
+                        <ul id="exchange" class="dropdown-content">
+                            <li><a href="#!">{ global.currentCryptoExchange }</a></li>
+                            <li class="divider"></li>
+                            <li rv-each-address="global.addressesList"><a href="#!">{address.address}</a></li>
+                        </ul>
+                        <span class="statNumber tinyStatNumber">1 <span class="statUnit">BTC =</span> { global.exchangeRate.BTC.price_usd | FIATCurrency } <span class="statUnit subStatUnit">$</span> <!-- <a class="dropdown-button" href="#!" data-activates="exchange">{ currentCryptoExchange }<i class="material-icons right">arrow_drop_down</i></a> --></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col l2 s6 m4">
+        <div class="card tooltipped" data-position="bottom" data-delay="50" data-tooltip="Efficiency">
+            <div class="card-content center-align">
+                <span class="statNumber">98.41<i class="small material-icons green-text text-lighten-1">arrow_drop_up</i></span>
+                <span class="statUnit">% Accepted</span>
+            </div>
+            <div class="divider"></div>
+            <div class="card-content center-align">
+                <span class="subStatNumber">1.59 <span class="statUnit subStatUnit">%</span></span>
+            </div>
+        </div>
+    </div>
+    <div class="col l2 s6 m4">
+        <div class="card tooltipped" data-position="bottom" data-delay="50" data-tooltip="Unpaid balance">
+            <div class="card-content center-align">
+                <span class="statNumber">{ global.latestResult.balance | btc }<i class="small material-icons green-text text-lighten-1">arrow_drop_up</i></span>
+                <span class="statUnit">BTC</span>
+            </div>
+            <div class="divider"></div>
+            <div class="card-content center-align">
+                <span class="subStatNumber">{ global.latestResult.balance | cryptoExchange } <span class="statUnit subStatUnit">$</span></span>
+            </div>
+        </div>
+    </div>
+    <div class="col l2 s6 m4">
+        <div class="row">
+            <div class="col l12 s6 m4">
+                <div class="card tooltipped timer" data-position="bottom" data-delay="50" data-tooltip="Time remaining until next refresh">
+                    <div class="card-content center-align">
+                        <span class="statNumber smallStatNumber">{ global.timer }</span>
+                        <span class="statUnit">Seconds left</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col l12 s6 m4">
+                <div class="card tooltipped" data-position="bottom" data-delay="50" data-tooltip="Api status">
+                    <div class="card-content center-align">
+                        <span class="statNumber tinyStatNumber">{ global.apiStatus | status}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
