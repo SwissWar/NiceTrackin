@@ -23,7 +23,7 @@ $(document).ready(function() {
     }
     
     rivets.formatters.cryptoExchange = function(value){
-        return Math.round((value * global.exchangeRate[global.currentCryptoCurrency].price_usd) * 100) / 100
+        return Math.round((value * global.exchangeRate[global.currentCryptoCurrency]["USD"]) * 100) / 100
     }
     
     rivets.formatters.FIATCurrency = function(value){
@@ -195,17 +195,30 @@ $(document).ready(function() {
     
     function updateView(callback) {
         
-        // current profitability & balance calculation
+        // list active algo
+        var activeAlgo = [];
+        
+        // current profitability & balance calculation & active algo
         var profitability = 0;
         var balance = 0;
         $.each(global.latestPoolData.result.current, function(key, val){
-            if(val.data[0].a) profitability += val.data[0].a * val.profitability;
+            if(val.data[0].a) {
+                profitability += val.data[0].a * val.profitability;
+                activeAlgo.push(val.algo);
+            }
             balance += val.data[1] * 1;
         });
         global.latestResult.profitability = profitability;
         global.latestResult.balance = balance;
         console.log(global.latestResult);
         
+        console.log(activeAlgo);
+        
+        // workers and hosts calculation
+        $.each(activeAlgo, function(key,val) {
+            console.log(val);
+        });
+            
         if(typeof callback == "function")
         callback();
     }
@@ -214,9 +227,8 @@ $(document).ready(function() {
         $.ajax({
             method: "GET",
             contentType: "application/json; charset=utf-8",
-            dataType: "jsonp",
             timeout: 10000,
-            url: 'https://coincap.io/page/'+currency,
+            url: 'https://min-api.cryptocompare.com/data/price?tsyms=USD,AUD,BRL,CAD,CHF,CLP,CNY,DKK,EUR,GBP,HKD,IDR,INR,ISK,JPY,KRW,NZD,PLN,RUB,SEK,SGD,THB,TWD,ZAR,PHP&fsym='+currency,
             success: function (data) {
                 global.exchangeRate.BTC = data;
                 console.log(global.exchangeRate[global.currentCryptoCurrency]);
@@ -224,7 +236,9 @@ $(document).ready(function() {
                 callback();
             },
             error: function () {
-                
+                Materialize.toast("BTC price couldn't refresh, last price updated from API will be used.", 10000);
+                if(typeof callback == "function")
+                callback();
             }
         });
     }
